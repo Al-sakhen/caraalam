@@ -1,0 +1,99 @@
+/*==================================
+23. Login Register Page Style Css
+===================================*/
+
+.login-form-style ,
+.register-form-style {
+    background: transparent none repeat scroll 0 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    padding: 80px;
+    @media #{$sm-device}{
+        padding: 50px 50px;
+    }
+    @media #{$xs-device}{
+        padding: 50px 30px;
+    }
+    form {
+        input {
+            background-color: transparent;
+            border: 1px solid #e1e1e1;
+            font-size: 15px;
+            height: 50px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+            color: $paragraph;
+            width: 100%;
+            &::-moz-input-placeholder {
+                opacity: 1;
+                color: $paragraph;
+            }
+            &::-webkit-input-placeholder {
+                opacity: 1;
+                color: $paragraph;
+            }
+            @media #{$xs-device}{
+                margin-bottom: 20px;
+            }
+        }
+        input[type="checkbox"] {
+            height: 15px;
+            margin: 0;
+            position: relative;
+            top: 2px;
+            width: 17px;
+            color: $paragraph;
+            &:-moz-input-placeholder {
+                color: $paragraph;
+                opacity: 1;
+            }
+            &:-webkit-input-placeholder {
+                color: $paragraph;
+                opacity: 1;
+            }
+        }
+        .login-toggle-btn {
+            padding: 10px 0 19px;
+            @media #{$xs-device}{
+                padding: 0px 0 17px;
+            }
+            label {
+                font-size: 15px;
+                font-weight: 400;
+                @media #{$xs-device}{
+                    font-size: 14px;
+                }
+            }
+            a {
+                float: right;
+                font-size: 15px;
+                color: $paragraph;
+                @media #{$xs-device}{
+                    font-size: 14px;
+                }
+                transition: all 0.3s ease 0s;
+                &:hover {
+                    color: $brandColor;
+                }
+            }
+        }
+        .login-btn {
+            button {
+                background-color: $paragraph;
+                color: #fff;
+                border: medium none;
+                cursor: pointer;
+                font-size: 16px;
+                line-height: 1;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: all 0.3s ease 0s;
+                padding: 16px 30px 15px;
+                display: block;
+                width: 100%;
+                &:hover {
+                    background-color: $brandColor;
+                }
+            }
+        }
+    }
+}

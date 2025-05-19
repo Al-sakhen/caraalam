@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+/** daisyUI */
+@source "../../vendor/robsontenorio/mary/src/View/Components/**/*.php";
+
+/* daisyUI */
+/* themes: light --default, dark --prefersdark; */
+@plugin "daisyui" {
+    themes: light --default;
+}
