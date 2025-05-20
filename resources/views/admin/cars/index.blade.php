@@ -19,9 +19,9 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-primary">
+                <a href="{{ route('dashboard.cars.create') }}" type="button" class="btn btn-primary">
                     Add new Car
-                </button>
+                </a>
             </div>
         </div>
         <div class="card-body">

@@ -35,12 +35,27 @@
                 </li>
 
                 {{-- ----------------------------- --}}
+                {{-- ********* COUNTRIES ********* --}}
+                {{-- ----------------------------- --}}
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.countries.index') }}" @class([
+                        'nav-link',
+                        'active' => request()->routeIs('dashboard.countries.*'),
+                    ])>
+                        <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            Countries
+                        </p>
+                    </a>
+                </li>
+
+                {{-- ----------------------------- --}}
                 {{-- ********* CATEGORIES ********* --}}
                 {{-- ----------------------------- --}}
                 <li class="nav-item">
-                    <a href="#" @class([
+                    <a href="{{ route('dashboard.history-categories.index') }}" @class([
                         'nav-link',
-                        'active' => request()->routeIs('dashboard.categories.*'),
+                        'active' => request()->routeIs('dashboard.history-categories.*'),
                     ])>
                         <i class="nav-icon fas fa-list"></i>
                         <p>

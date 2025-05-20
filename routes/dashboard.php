@@ -7,10 +7,12 @@ use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CarController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactUsController;
+use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DealerProgramController;
 use App\Http\Controllers\Dashboard\FooterController;
 use App\Http\Controllers\Dashboard\GalleryController;
+use App\Http\Controllers\Dashboard\HistoryCategoryController;
 use App\Http\Controllers\Dashboard\ModelController;
 use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\PageStatusController;
@@ -46,7 +48,22 @@ Route::get('/', [DashboardController::class, 'index'])
 Route::name('dashboard.')
     ->middleware('auth:web')
     ->group(function () {
-        // Categories Routes : 
+
+        // Car Routes : 
         // ---------------------
         Route::resource('cars', CarController::class)->only(['index', 'create', 'edit']);
+        Route::controller(CarController::class)
+            ->prefix('cars')
+            ->name('cars.')
+            ->group(function () {
+                Route::get('history/{car}', 'carHistory')->name('history');
+            });
+
+        // History Category Routes :
+        // ---------------------
+        Route::resource('history-categories', HistoryCategoryController::class)->only(['index', 'create', 'edit']);
+
+        // Countries Routes :
+        // ------------------------------------------
+        Route::resource('countries', CountryController::class);
     });

@@ -40,9 +40,9 @@ final class CarTable extends PowerGridComponent
         return PowerGrid::fields()
             ->add('id')
             ->add('name')
-            ->add('name_lower', fn (Car $model) => strtolower(e($model->name)))
+            ->add('name_lower', fn(Car $model) => strtolower(e($model->name)))
             ->add('created_at')
-            ->add('created_at_formatted', fn (Car $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+            ->add('created_at_formatted', fn(Car $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
     public function columns(): array
@@ -52,7 +52,11 @@ final class CarTable extends PowerGridComponent
                 ->searchable()
                 ->sortable(),
 
-            Column::make('Name', 'name')
+            Column::make('Name (ar)', 'name_ar')
+                ->searchable()
+                ->sortable(),
+
+            Column::make('Name (en)', 'name_en')
                 ->searchable()
                 ->sortable(),
 
@@ -74,20 +78,22 @@ final class CarTable extends PowerGridComponent
         ];
     }
 
-    #[\Livewire\Attributes\On('edit')]
-    public function edit($rowId): void
-    {
-        $this->js('alert('.$rowId.')');
-    }
 
     public function actions(Car $row): array
     {
         return [
+            // Edit Car
             Button::add('edit')
-                ->slot('Edit: '.$row->id)
-                ->id()
-                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
+                ->slot('<i class="fas fa-edit"></i>')
+                ->class('btn btn-primary btn-sm rounded')
+                ->route('dashboard.cars.edit', ['car' => $row->id]),
+
+            // Car History
+            Button::add('history')
+                ->slot('<i class="fas fa-history"></i>')
+                ->class('btn btn-info btn-sm rounded')
+                ->route('dashboard.cars.history', ['car' => $row->id]),
+
         ];
     }
 

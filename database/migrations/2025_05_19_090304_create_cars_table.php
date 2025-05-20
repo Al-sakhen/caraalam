@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_en')->nullable();
             $table->string('name_ar')->nullable();
+            $table->longText('image')->nullable();
             $table->longText('chassis_number')->nullable();
             $table->unsignedInteger('rating')->default(0);
             $table->string('engine_capacity')->nullable();
